@@ -8,9 +8,19 @@ const terminal = readline.createInterface({
     output:process.stdout
 });
 
-terminal.question("What type of equation are you looking for?",function(str){
-
+terminal.question("What type of equation are you looking for?",function(str)){
+    str.toLowerCase();
     //you will configure your series of questions inside here.
+    if(str=="motion"){
+      terminal.question("What variable are you solving for?",function(str)){
+          str.toLowerCase();
+          if()
+      }
+    }
+    else if(str=="energy"){
 
+    }
+    else{
 
+    }
 });
