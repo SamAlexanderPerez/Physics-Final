@@ -7,6 +7,24 @@ const terminal = readline.createInterface({
     input:process.stdin,
     output:process.stdout
 });
+function end(){
+    terminal.close();
+}
+
+function printOptions(){
+    console.log("\nEnter the variables you know in a comma list.");
+    console.log("If you do not know a variable, then type n");
+    console.log("distance,velocity,acceleration,time,mass,energy");
+
+}
+
+function convertToArray(strcma){
+    strcma = strcma.split(',');
+    for(let i=0;i<strcma.length;i++){
+        strcma[i] = Number(strcma[i]);
+    }
+    return strcma;
+}
 
 terminal.question("What type of equation are you looking for?",function(str)){
     str.toLowerCase();
@@ -14,7 +32,27 @@ terminal.question("What type of equation are you looking for?",function(str)){
     if(str=="motion"){
       terminal.question("What variable are you solving for?",function(str)){
           str.toLowerCase();
-          if()
+          if(str=="d"){
+            printOptions();
+            terminal.question("...",function(str)){
+                str.toLowerCase();
+                convertToArray(strcma);
+                if(str[2]==NaN){
+                    return motion.distance(str[1],str[3]);
+                }
+                else{
+                  return motion.distance2(str[2],str[3],str[1]);
+                }
+            }
+
+          }
+          else if(str=="v"){
+            printOptions();
+            terminal.question("...",function(str)){
+                str.toLowerCase();
+                convertToArray(strcma);
+                if()
+          }
       }
     }
     else if(str=="energy"){
