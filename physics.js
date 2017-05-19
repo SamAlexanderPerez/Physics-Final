@@ -51,13 +51,58 @@ terminal.question("What type of equation are you looking for?",function(str)){
             terminal.question("...",function(str)){
                 str.toLowerCase();
                 convertToArray(strcma);
-                if()
+                if(str[2]==NaN){
+                  return motion.velocity(str[0],str[3]);
+                }
+                else{
+                  return motion.velocity2(str[1],str[2],str[3]);
+                }
+              }
+            }
+          else if(str=="t"){
+          printOptions();
+          terminal.question("...",function(str)){
+              str.toLowerCase();
+              convertToArray(strcma);
+              if(str[2]==NaN){
+                return motion.time(str[0],str[1]);
+              }
+            }
           }
+        else if(str=="a"){
+          printOptions();
+          terminal.question("...",function(str)){
+            str.toLowerCase();
+            convertToArray(strcma);
+            return motion.acceleration(str[1],str[3]);
+          }
+        }
       }
     }
     else if(str=="energy"){
-
+      terminal.question("What variable are you solving for?",function(str)){
+          str.toLowerCase();
+          if(str=="ke"){
+            printOptions();
+            terminal.question("...",function(str)){
+                str.toLowerCase();
+                convertToArray(strcma);
+                return energy.kineticEnergy(str[4],str[1]);
+              }
+            }
+          else if(str=="m"){
+            printOptions();
+            terminal.question("...",function(str)){
+                str.toLowerCase();
+                convertToArray(strcma);
+                return energy.mass(str[5],str[1]);
+        }
+      }
+        else if(str=="v")
+          
+        }
     }
+  }
     else{
 
     }
